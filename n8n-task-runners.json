@@ -3,6 +3,7 @@
     {
       "runner-type": "javascript",
       "health-check-server-port": "8081",
+      "working-directory": "/opt/runners",
       "env-overrides": {
         "NODE_FUNCTION_ALLOW_BUILTIN": "",
         "NODE_FUNCTION_ALLOW_EXTERNAL": ""
@@ -11,6 +12,7 @@
     {
       "runner-type": "python",
       "health-check-server-port": "8082",
+      "working-directory": "/opt/runners",
       "env-overrides": {
         "PYTHONPATH": "/opt/runners/task-runner-python",
         "N8N_RUNNERS_STDLIB_ALLOW": "os,sys,io,json,math,datetime,re,statistics,uuid,pathlib,struct",
