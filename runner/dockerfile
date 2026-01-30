@@ -1,2 +1,21 @@
-FROM ghcr.io/n8n-io/task-runner-python:latest
-RUN python3 -m pip install pillow piexif exifread
+FROM python:3.11-slim
+
+# System libs für Pillow
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  gcc \
+  libjpeg-dev \
+  zlib1g-dev \
+  libpng-dev \
+  && rm -rf /var/lib/apt/lists/*
+
+# Python libs
+RUN pip install --no-cache-dir \
+  pillow \
+  piexif \
+  exifread \
+  requests
+
+# n8n Python runner launcher
+RUN pip install --no-cache-dir n8n-python-runner
+
+CMD ["n8n-python-runner"]
