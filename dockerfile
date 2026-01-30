@@ -2,8 +2,6 @@ FROM n8nio/runners:latest
 
 USER root
 
-RUN echo "build $(date)" > /build-id.txt
-
 RUN cd /opt/runners/task-runner-python && \
   uv pip install pillow piexif numpy
 
