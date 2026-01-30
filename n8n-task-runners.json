@@ -1,22 +1,26 @@
 {
-  "python": {
-    "allowStdLib": [
-      "os",
-      "sys",
-      "io",
-      "json",
-      "math",
-      "datetime",
-      "re",
-      "statistics",
-      "uuid",
-      "pathlib",
-      "struct"
-    ],
-    "allowExternal": [
-      "pillow",
-      "piexif",
-      "numpy"
-    ]
-  }
+  "taskRunners": [
+    {
+      "type": "python",
+      "enabled": true,
+      "allowStdLib": [
+        "os",
+        "sys",
+        "io",
+        "json",
+        "math",
+        "datetime",
+        "re",
+        "statistics",
+        "uuid",
+        "pathlib",
+        "struct"
+      ],
+      "allowExternal": [
+        "pillow",
+        "piexif",
+        "numpy"
+      ]
+    }
+  ]
 }
