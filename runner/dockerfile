@@ -1,21 +1,15 @@
-FROM python:3.11-slim
+FROM node:20-bookworm
 
-# System libs für Pillow
+USER root
+
+# Python + libs
 RUN apt-get update && apt-get install -y --no-install-recommends \
-  gcc \
-  libjpeg-dev \
-  zlib1g-dev \
-  libpng-dev \
+  python3 python3-pip \
+  libjpeg-dev zlib1g-dev libpng-dev \
+  && pip3 install --no-cache-dir pillow piexif exifread \
   && rm -rf /var/lib/apt/lists/*
 
-# Python libs
-RUN pip install --no-cache-dir \
-  pillow \
-  piexif \
-  exifread \
-  requests
+# offizieller Task Runner
+RUN npm install -g @n8n/task-runner
 
-# n8n Python runner launcher
-RUN pip install --no-cache-dir n8n-python-runner
-
-CMD ["n8n-python-runner"]
+CMD ["n8n-task-runner"]
