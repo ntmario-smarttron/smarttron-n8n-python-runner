@@ -4,22 +4,11 @@
       "type": "python",
       "enabled": true,
       "allowStdLib": [
-        "os",
-        "sys",
-        "io",
-        "json",
-        "math",
-        "datetime",
-        "re",
-        "statistics",
-        "uuid",
-        "pathlib",
-        "struct"
+        "json"
       ],
       "allowExternal": [
-        "pillow",
-        "piexif",
-        "numpy"
+        "numpy",
+        "pandas"
       ]
     }
   ]
