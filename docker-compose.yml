@@ -15,7 +15,8 @@ services:
       - n8n_data:/home/node/.n8n
 
   runners:
-    image: n8nio/runners:1.121.0
+    build: .
+    image: n8nio/runners:custom
     restart: unless-stopped
     depends_on:
       - n8n
@@ -23,8 +24,6 @@ services:
       - N8N_RUNNERS_AUTH_TOKEN=runner-secret
       - N8N_RUNNERS_TASK_BROKER_URI=http://n8n:5679
       - N8N_RUNNERS_LAUNCHER_LOG_LEVEL=info
-    volumes:
-      - ./n8n-task-runners.json:/etc/n8n-task-runners.json
 
 volumes:
   n8n_data:
