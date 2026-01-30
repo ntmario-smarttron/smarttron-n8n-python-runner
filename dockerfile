@@ -1,7 +1,7 @@
 FROM n8nio/runners:latest
 
 # Erzwingt Rebuild bei Änderungen
-ARG CACHE_BUSTER=1
+ARG CACHE_BUSTER=2
 
 USER root
 
