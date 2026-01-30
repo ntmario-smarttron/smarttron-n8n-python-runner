@@ -1,6 +1,8 @@
+version: "3.9"
+
 services:
   n8n-runner:
-    image: node:20-bookworm
+    image: docker.n8n.io/n8nio/task-runner:latest
     restart: unless-stopped
     command: >
       bash -c "
@@ -8,7 +10,6 @@ services:
       apt-get install -y python3 python3-venv python3-pip libjpeg-dev zlib1g-dev libpng-dev &&
       python3 -m venv /opt/venv &&
       /opt/venv/bin/pip install pillow piexif exifread &&
-      npm install -g @n8n/task-runner &&
       export PATH='/opt/venv/bin:$PATH' &&
       n8n-task-runner"
     environment:
