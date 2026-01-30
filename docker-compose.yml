@@ -1,3 +1,30 @@
-docker buildx build \
-  -f docker/images/runners/Dockerfile \
-  -t n8nio/runners:custom \
+version: "3.9"
+
+services:
+
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_RUNNERS_AUTH_TOKEN=runner-secret
+      - N8N_RUNNERS_BROKER_LISTEN_ADDRESS=0.0.0.0
+      - N8N_RUNNERS_BROKER_PORT=5679
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+  runners:
+    image: n8nio/runners:1.121.0
+    restart: unless-stopped
+    depends_on:
+      - n8n
+    environment:
+      - N8N_RUNNERS_AUTH_TOKEN=runner-secret
+      - N8N_RUNNERS_TASK_BROKER_URI=http://n8n:5679
+      - N8N_RUNNERS_LAUNCHER_LOG_LEVEL=info
+    volumes:
+      - ./n8n-task-runners.json:/etc/n8n-task-runners.json
+
+volumes:
+  n8n_data:
