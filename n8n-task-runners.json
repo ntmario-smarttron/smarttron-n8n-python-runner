@@ -1,6 +1,13 @@
 {
   "task-runners": [
     {
+      "runner-type": "javascript",
+      "env-overrides": {
+        "NODE_FUNCTION_ALLOW_BUILTIN": "",
+        "NODE_FUNCTION_ALLOW_EXTERNAL": ""
+      }
+    },
+    {
       "runner-type": "python",
       "env-overrides": {
         "PYTHONPATH": "/opt/runners/task-runner-python",
