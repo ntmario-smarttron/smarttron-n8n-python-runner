@@ -10,6 +10,7 @@
     },
     {
       "runner-type": "python",
+      "health-check-server-port": "8082",
       "env-overrides": {
         "PYTHONPATH": "/opt/runners/task-runner-python",
         "N8N_RUNNERS_STDLIB_ALLOW": "os,sys,io,json,math,datetime,re,statistics,uuid,pathlib,struct",
