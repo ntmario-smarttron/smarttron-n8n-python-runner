@@ -1,15 +1,12 @@
 {
-  "taskRunners": [
+  "task-runners": [
     {
-      "type": "python",
-      "enabled": true,
-      "allowStdLib": [
-        "json"
-      ],
-      "allowExternal": [
-        "numpy",
-        "pandas"
-      ]
+      "runner-type": "python",
+      "env-overrides": {
+        "PYTHONPATH": "/opt/runners/task-runner-python",
+        "N8N_RUNNERS_STDLIB_ALLOW": "os,sys,io,json,math,datetime,re,statistics,uuid,pathlib,struct",
+        "N8N_RUNNERS_EXTERNAL_ALLOW": "pillow,piexif,numpy"
+      }
     }
   ]
 }
