@@ -1,0 +1,22 @@
+{
+  "python": {
+    "allowStdLib": [
+      "os",
+      "sys",
+      "io",
+      "json",
+      "math",
+      "datetime",
+      "re",
+      "statistics",
+      "uuid",
+      "pathlib",
+      "struct"
+    ],
+    "allowExternal": [
+      "pillow",
+      "piexif",
+      "numpy"
+    ]
+  }
+}
