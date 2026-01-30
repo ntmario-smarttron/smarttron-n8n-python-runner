@@ -2,7 +2,7 @@
   "task-runners": [
     {
       "runner-type": "javascript",
-      "health-check-server-port": 8081,
+      "health-check-server-port": "8081",
       "env-overrides": {
         "NODE_FUNCTION_ALLOW_BUILTIN": "",
         "NODE_FUNCTION_ALLOW_EXTERNAL": ""
