@@ -2,21 +2,41 @@
   "task-runners": [
     {
       "runner-type": "javascript",
-      "health-check-server-port": "8081",
-      "working-directory": "/opt/runners",
+      "workdir": "/home/runner",
+      "command": "/usr/local/bin/node",
+      "args": [
+        "--disallow-code-generation-from-strings",
+        "--disable-proto=delete",
+        "/opt/runners/task-runner-javascript/dist/start.js"
+      ],
+      "health-check-server-port": "5681",
+      "allowed-env": [
+        "PATH",
+        "GENERIC_TIMEZONE",
+        "NODE_OPTIONS"
+      ],
       "env-overrides": {
-        "NODE_FUNCTION_ALLOW_BUILTIN": "",
-        "NODE_FUNCTION_ALLOW_EXTERNAL": ""
+        "NODE_FUNCTION_ALLOW_BUILTIN": "crypto",
+        "NODE_FUNCTION_ALLOW_EXTERNAL": "moment,uuid"
       }
     },
     {
       "runner-type": "python",
-      "health-check-server-port": "8082",
-      "working-directory": "/opt/runners",
+      "workdir": "/home/runner",
+      "command": "/opt/runners/task-runner-python/.venv/bin/python",
+      "args": [
+        "-m",
+        "src.main"
+      ],
+      "health-check-server-port": "5682",
+      "allowed-env": [
+        "PATH",
+        "N8N_RUNNERS_LAUNCHER_LOG_LEVEL"
+      ],
       "env-overrides": {
         "PYTHONPATH": "/opt/runners/task-runner-python",
-        "N8N_RUNNERS_STDLIB_ALLOW": "os,sys,io,json,math,datetime,re,statistics,uuid,pathlib,struct",
-        "N8N_RUNNERS_EXTERNAL_ALLOW": "pillow,piexif,numpy"
+        "N8N_RUNNERS_STDLIB_ALLOW": "*",
+        "N8N_RUNNERS_EXTERNAL_ALLOW": "*"
       }
     }
   ]
