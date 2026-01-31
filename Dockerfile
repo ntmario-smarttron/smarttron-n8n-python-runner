@@ -12,3 +12,4 @@ RUN cd /opt/runners/task-runner-javascript && pnpm add moment uuid
 COPY n8n-task-runners.json /etc/n8n-task-runners.json
 
 USER runner
+
