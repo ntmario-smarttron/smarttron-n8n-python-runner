@@ -16,9 +16,10 @@
     {
       "runner-type": "python",
       "workdir": "/opt/runners/task-runner-python",
-      "command": "python3",
+      "command": "/opt/runners/task-runner-python/.venv/bin/python",
       "args": [
-        "/opt/runners/task-runner-python/runner.py"
+        "-m",
+        "src.main"
       ],
       "health-check-server-port": "5682",
       "env-overrides": {
