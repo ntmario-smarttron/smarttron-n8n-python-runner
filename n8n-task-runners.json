@@ -2,17 +2,17 @@
   "task-runners": [
     {
       "runner-type": "javascript",
-      "working-directory": "/opt/runners/task-runner-javascript",
       "health-check-server-port": "5681",
+      "command": "/opt/runners/task-runner-javascript/dist/index.js",
       "env-overrides": {
-        "NODE_FUNCTION_ALLOW_BUILTIN": "crypto",
+        "NODE_FUNCTION_ALLOW_BUILTIN": "crypto,fs,path",
         "NODE_FUNCTION_ALLOW_EXTERNAL": "moment,uuid"
       }
     },
     {
       "runner-type": "python",
-      "working-directory": "/opt/runners/task-runner-python",
       "health-check-server-port": "5682",
+      "command": "/opt/runners/task-runner-python/runner.py",
       "env-overrides": {
         "PYTHONPATH": "/opt/runners/task-runner-python",
         "N8N_RUNNERS_STDLIB_ALLOW": "json,math,datetime,re,os",
